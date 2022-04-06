@@ -36,6 +36,7 @@ public class Login extends BaseConf {
                 seeThat(
                         the(IMG_USER_ICON), isVisible())
         );
+        
     }
 
 }
