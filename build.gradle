@@ -1,0 +1,63 @@
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.2.0"
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+defaultTasks 'clean','test','aggregate'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.2.0'
+    junitVersion = '5.8.2'
+    assertJVersion = '3.22.0'
+    logbackVersion = '1.2.10'
+    lombokVersion = '1.18.20'
+    jsonPath = '4.4.0'
+    javaFakerVersion = '1.0.2'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}",
+            "io.rest-assured:json-path:${jsonPath}",
+            "com.github.javafaker:javafaker:${javaFakerVersion}",
+            "org.projectlombok:lombok:${lombokVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    annotationProcessor "org.projectlombok:lombok"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    maxParallelForks=1
+    systemProperties System.getProperties()
+}
+
+serenity {
+    reports = ["single-page-html"]
+    testRoot="com.think.features"
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)

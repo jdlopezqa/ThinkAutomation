@@ -1,0 +1,29 @@
+{
+    "events":[
+        {
+            "type":"basic",
+            "subject":"Asunto automation",
+            "description":"Descripci\u00F3n evento automation",
+            "process":"Proceso de Mantenimiento",
+            "area":"Gerencia Acabados",
+            "users":[
+                {
+                "name":"Administrador",
+                "domain":"Sin dominio",
+                "login":"admin"
+            },{
+                "name":"Alberto Extranjero",
+                "domain":"Sin dominio",
+                "login":"aextranjero"
+            }
+            ],
+            "comments": [
+                {
+                    "description":"comment one"
+                },{
+                    "description":"comment two"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "actors": [
+        {
+            "name": "Administrador",
+            "user": "admin",
+            "password": "123"
+        }
+    ]
+}
