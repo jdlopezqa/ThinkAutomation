@@ -48,7 +48,7 @@ public class AddToEvent {
     public static Performable decider(String user) {
         return Task.where("{0} clicks on decider for user #user",
                 Click.on(DECIDER.of(user))
-        );
+        ).with("user").of(user);
     }
 
     public static Performable goToDiscussion() {

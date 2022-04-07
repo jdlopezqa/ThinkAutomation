@@ -3,6 +3,7 @@ package com.think.features.auth;
 import com.think.conf.BaseConf;
 import com.think.factories.ThinkActorFactory;
 import com.think.models.ThinkActor;
+import com.think.tasks.NavigateTo;
 import com.think.tasks.login.LoginSystem;
 import lombok.SneakyThrows;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
@@ -22,13 +23,13 @@ public class Login extends BaseConf {
 
     ThinkActor admin;
 
-    @SneakyThrows
     @Test
     @WithTagValuesOf({"login", "smoke"})
     public void should_UserLoginSuccessfully_When_HeSendsValidCredentials() {
 
         admin = ThinkActorFactory.getActorByUsername("Administrador");
 
+        thinkActor.describedAs("login with valid credential");
         thinkActor.attemptsTo(
                 LoginSystem.withUser(admin)
         );

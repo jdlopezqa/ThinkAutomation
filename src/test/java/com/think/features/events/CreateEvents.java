@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.think.enums.MenuOption.EVENTS_DECISIONS;
+import static com.think.enums.Messages.SUCCESSFULLY_SAVED;
 import static com.think.enums.SubMenuOption.EVENTS;
 import static com.think.enums.SubSubMenuOption.MANAGE;
 import static com.think.factories.ThinkActorFactory.getActorByUsername;
@@ -62,11 +63,12 @@ public class CreateEvents extends BaseConf {
         );
         thinkActor.should(
                 seeThat(TextFound.in(MESSAGE),
-                        equalTo(Messages.SUCCESSFULLY_SAVED.getText()))
+                        equalTo(SUCCESSFULLY_SAVED.getText()))
         );
 
         thinkActor.attemptsTo(
                 CommentToEvent.withData(event.getComments())
         );
     }
+
 }

@@ -26,8 +26,8 @@ public class LoginSystem implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 NavigateTo.loginPage(),
-                Enter.theValue(user.getUser()).into(INPUT_LOGIN),
-                Enter.theValue(user.getPassword()).into(INPUT_PASSWORD),
-                Click.on(BTN_LOGIN));
+                Enter.theValue(user.getUser()).into(USER),
+                Enter.theValue(user.getPassword()).into(PASSWORD),
+                Click.on(LOGIN));
     }
 }
