@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class AddUserPage {
 
     public static final Target NAME = Target
-            .the("input name user").located(By.id("name"));
+            .the("input user name").located(By.id("name"));
 
     public static final Target DOMAIN = Target
             .the("input domain user").located(By.id("domain"));

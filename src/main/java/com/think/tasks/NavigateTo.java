@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class NavigateTo implements Task {
 
@@ -17,7 +16,7 @@ public class NavigateTo implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Open.url(theActorInTheSpotlight().recall("baseUrl"))
+                Open.url(actor.recall("baseUrl"))
         );
     }
 }
