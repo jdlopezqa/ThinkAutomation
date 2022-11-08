@@ -12,6 +12,7 @@ import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static com.think.enums.Actors.ADMIN;
 import static com.think.ui.HomePage.IMG_USER_ICON;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -27,7 +28,7 @@ public class Login extends BaseConf {
     @WithTagValuesOf({"login", "smoke"})
     public void should_UserLoginSuccessfully_When_HeSendsValidCredentials() {
 
-        admin = ThinkActorFactory.getActorByUsername("Administrador");
+        admin = ThinkActorFactory.getActorByUsername(ADMIN.getActorName());
 
         thinkActor.describedAs("login with valid credential");
         thinkActor.attemptsTo(

@@ -1,0 +1,13 @@
+{
+  "variables": [
+    {
+      "key": "indicator-with-constant-goal",
+      "name": "ventas automation",
+      "unitMeasurement": "Miles de Pesos",
+      "measurementFrequency": "Mensual (Ultimo dia del mes a las 23:59)",
+      "isIndicator": true,
+      "goal": "Constante",
+      "goalValue": "1000000"
+    }
+  ]
+}

@@ -2,7 +2,10 @@ package com.think.enums;
 
 public enum SubMenuOption {
 
-    EVENTS("Eventos");
+    EVENTS("Eventos"),
+    VARIABLES("Variables"),
+    MY_RESPONSABILITIES("Mis responsabilidades")
+    ;
 
     private final String text;
 
