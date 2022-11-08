@@ -22,7 +22,7 @@ public class HomePage {
 
     public static final Target OPTION_SUBMENU = Target
             .the("Option sub-menu {0}")
-            .locatedBy("//div[@id='sve8-menu-lv2-2']//div[@fulltitle='{0}' and contains(text(),'{0}')]");
+            .locatedBy("//div[@id='sve8-menu-lv2-2']//div[@fulltitle='{0}' and contains(.,'{0}')]");
 
     public static final Target OPTION_SUB_SUBMENU = Target
             .the("Option sub sub-menu {1}")

@@ -1,8 +1,7 @@
 package com.think.features.events;
 
 import com.think.conf.BaseConf;
-import com.think.enums.Messages;
-import com.think.factories.EventsFactory;
+import com.think.factories.events.EventsFactory;
 import com.think.models.ThinkActor;
 import com.think.models.events.Event;
 import com.think.questions.TextFound;
@@ -18,12 +17,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static com.think.enums.Actors.ADMIN;
 import static com.think.enums.MenuOption.EVENTS_DECISIONS;
 import static com.think.enums.Messages.SUCCESSFULLY_SAVED;
 import static com.think.enums.SubMenuOption.EVENTS;
 import static com.think.enums.SubSubMenuOption.MANAGE;
 import static com.think.factories.ThinkActorFactory.getActorByUsername;
-import static com.think.ui.components.MessagesPage.MESSAGE;
+import static com.think.ui.components.ResponsePage.MESSAGE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -35,7 +35,14 @@ public class CreateEvents extends BaseConf {
 
     @BeforeEach
     public void setUp() {
-        admin = getActorByUsername("Administrador");
+        admin = getActorByUsername(ADMIN.getActorName());
+        thinkActor.wasAbleTo(
+                LoginSystem.withUser(admin),
+                AccessTo
+                        .menu(EVENTS_DECISIONS)
+                        .andSubMenu(EVENTS)
+                        .andSubSubMenu(MANAGE)
+        );
     }
 
     @Test
@@ -47,11 +54,6 @@ public class CreateEvents extends BaseConf {
         thinkActor.describedAs("has a basic event");
 
         thinkActor.attemptsTo(
-                LoginSystem.withUser(admin),
-                AccessTo
-                        .menu(EVENTS_DECISIONS)
-                        .andSubMenu(EVENTS)
-                        .andSubSubMenu(MANAGE),
                 CreateAEvent
                         .with()
                         .subject(event.getSubject())

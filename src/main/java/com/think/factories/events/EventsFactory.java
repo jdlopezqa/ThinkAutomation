@@ -1,4 +1,4 @@
-package com.think.factories;
+package com.think.factories.events;
 
 import com.github.javafaker.Faker;
 import com.think.models.events.Event;
