@@ -8,7 +8,7 @@
       "area": "Gerencia Acabados",
       "users": [
         {
-          "name": "Administrador",
+          "name": "administrador del sistema",
           "domain": "Sin dominio",
           "login": "admin"
         },
