@@ -65,7 +65,6 @@ public class AddValuesToVariable implements Task {
         int goalMinim = (int) (goal * 0.5);
         int goalMax = (int) ((goal * 0.2) + goal); //TODO revisar calculo de cumplimiento
         int month = GetMonth.fromNumber(variable.getInitialDate().split("/")[1]);
-        ;
 
         for (int i = size; i > 0; i -= 2) {
             Values value = new Values();
